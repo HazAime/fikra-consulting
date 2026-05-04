@@ -5,17 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>FIKRA Conseil — Stratégie, Intermédiation & Ingénierie de Projets aux Comores</title>
-  <meta name="description" content="FIKRA Conseil accompagne investisseurs, institutions et entreprises aux Comores et dans l’Océan Indien : stratégie, intermédiation d’affaires, études de faisabilité, ingénierie de dossiers et supervision de projets." />
-  <meta name="keywords" content="FIKRA Conseil, cabinet conseil Comores, intermédiation affaires Comores, stratégie, ingénierie de projets, investisseurs Comores, Moroni, Océan Indien, ETSAH Conseil" />
+  <meta name="description" content="FIKRA Conseil accompagne investisseurs, institutions et entreprises aux Comores et dans l’Océan Indien : stratégie, intermédiation d’affaires, études de faisabilité, représentation locale et ingénierie de projets." />
+  <meta name="keywords" content="FIKRA Conseil, cabinet conseil Comores, intermédiation affaires Comores, stratégie, ingénierie de projets, investisseurs Comores, Moroni, Océan Indien" />
+  <meta name="author" content="FIKRA Conseil" />
 
   <meta property="og:title" content="FIKRA Conseil — Pensée. Stratégie. Réalisation." />
-  <meta property="og:description" content="Le partenaire local qui transforme les ambitions privées et publiques aux Comores en projets exécutés." />
+  <meta property="og:description" content="Le relais stratégique local pour transformer les ambitions aux Comores en projets exécutés." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="fikra-logo.svg" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="fikra-symbol.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -34,7 +36,7 @@
             sans: ['Inter', 'sans-serif']
           },
           boxShadow: {
-            premium: '0 24px 80px rgba(10,37,64,0.18)',
+            premium: '0 28px 90px rgba(10,37,64,0.20)',
             soft: '0 18px 50px rgba(10,37,64,0.12)'
           }
         }
@@ -44,214 +46,64 @@
 
   <style>
     :root { scroll-behavior: smooth; }
-
-    body {
-      background: #F6F1E8;
-      color: #102A43;
-    }
+    body { background: #F6F1E8; color: #102A43; }
 
     .grain {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 50;
-      opacity: .045;
+      position: fixed; inset: 0; z-index: 50; pointer-events: none; opacity: .04;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
     }
 
     .ocean-lines {
       background-image:
-        radial-gradient(circle at 15% 20%, rgba(216,180,90,.18), transparent 28%),
-        radial-gradient(circle at 80% 10%, rgba(10,108,74,.18), transparent 30%),
-        linear-gradient(135deg, rgba(255,255,255,.08) 0 1px, transparent 1px 18px);
+        radial-gradient(circle at 14% 18%, rgba(216,180,90,.18), transparent 27%),
+        radial-gradient(circle at 84% 10%, rgba(10,108,74,.18), transparent 30%),
+        linear-gradient(135deg, rgba(255,255,255,.07) 0 1px, transparent 1px 18px);
     }
 
-    .nav-blur {
-      backdrop-filter: blur(18px);
-      background: rgba(246,241,232,.82);
-    }
+    .nav-blur { backdrop-filter: blur(18px); background: rgba(246,241,232,.84); }
+    .gold-gradient { background: linear-gradient(135deg, #F4D37B, #B8892B); }
+    .text-gradient { background: linear-gradient(135deg, #FFFFFF 0%, #F4D37B 60%, #E8D8B1 100%); -webkit-background-clip: text; color: transparent; }
 
-    .gold-gradient {
-      background: linear-gradient(135deg, #F4D37B, #B8892B);
-    }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .85s ease, transform .85s ease; }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
-    .text-gradient {
-      background: linear-gradient(135deg, #FFFFFF 0%, #F4D37B 55%, #E8D8B1 100%);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
+    .card-hover { transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease, background .35s ease; }
+    .card-hover:hover { transform: translateY(-7px); box-shadow: 0 24px 70px rgba(10,37,64,.17); border-color: rgba(216,180,90,.55); }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity .9s ease, transform .9s ease;
-    }
+    .mobile-menu { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .mobile-menu.open { max-height: 420px; }
 
-    .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .nav-symbol-logo { height: 52px; width: 52px; object-fit: contain; transition: transform .3s ease, filter .3s ease; }
+    .nav-symbol-logo:hover { transform: translateY(-2px) scale(1.04); filter: drop-shadow(0 12px 20px rgba(10,37,64,.18)); }
 
-    .card-hover {
-      transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
-    }
-
-    .card-hover:hover {
-      transform: translateY(-7px);
-      box-shadow: 0 24px 70px rgba(10,37,64,.18);
-      border-color: rgba(216,180,90,.55);
-    }
-
-    .mobile-menu {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height .35s ease;
-    }
-
-    .mobile-menu.open {
-      max-height: 420px;
-    }
-
-    .brand-logo {
-      object-fit: contain;
-      filter: drop-shadow(0 18px 34px rgba(0,0,0,.26));
-      will-change: transform, opacity, filter;
-    }
-
-    .nav-brand-logo {
-      height: 52px;
-      width: auto;
-      max-width: 220px;
-      object-fit: contain;
-      transition: transform .35s ease, filter .35s ease;
-    }
-
-    .nav-symbol-logo {
-      height: 54px;
-      width: 54px;
-      max-width: 54px;
-    }
-
-    .nav-brand-logo:hover {
-      transform: translateY(-2px) scale(1.018);
-      filter: drop-shadow(0 10px 20px rgba(10,37,64,.18));
-    }
-
-    .hero-brand-wrap {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 18px 0;
-    }
-
+    .brand-logo { object-fit: contain; filter: drop-shadow(0 18px 34px rgba(0,0,0,.28)); will-change: transform, opacity, filter; }
+    .hero-brand-wrap { position: relative; display: inline-flex; align-items: center; justify-content: center; padding: 12px 0; }
     .hero-brand-wrap::before {
-      content: "";
-      position: absolute;
-      inset: -40px -52px;
-      z-index: -1;
-      background:
-        radial-gradient(circle at 50% 50%, rgba(216,180,90,.24), transparent 58%),
-        radial-gradient(circle at 28% 20%, rgba(10,108,74,.20), transparent 52%);
-      filter: blur(12px);
-      opacity: .95;
+      content: ""; position: absolute; inset: -46px -62px; z-index: -1;
+      background: radial-gradient(circle, rgba(216,180,90,.26), transparent 58%), radial-gradient(circle at 30% 20%, rgba(10,108,74,.22), transparent 52%);
+      filter: blur(12px); opacity: .95;
     }
-
-    .hero-brand-logo {
-      width: min(520px, 92vw);
-      max-height: 260px;
-      opacity: 0;
-      transform: translateY(24px) scale(.94);
-      animation:
-        logoReveal 1.05s cubic-bezier(.2,.8,.2,1) forwards,
-        logoFloat 7s ease-in-out infinite 1.4s;
-    }
-
-    .hero-title-anim {
-      opacity: 0;
-      transform: translateY(18px);
-      animation: fadeUp .95s cubic-bezier(.2,.8,.2,1) forwards;
-      animation-delay: .42s;
-    }
-
-    .hero-copy-anim {
-      opacity: 0;
-      transform: translateY(16px);
-      animation: fadeUp .95s cubic-bezier(.2,.8,.2,1) forwards;
-      animation-delay: .62s;
-    }
-
-    .hero-cta-anim {
-      opacity: 0;
-      transform: translateY(14px);
-      animation: fadeUp .95s cubic-bezier(.2,.8,.2,1) forwards;
-      animation-delay: .82s;
-    }
-
-    .hero-photo {
-      animation: portraitFloat 8s ease-in-out infinite;
-    }
+    .hero-brand-logo { width: min(520px, 92vw); max-height: 250px; opacity: 0; transform: translateY(24px) scale(.94); animation: logoReveal 1.05s cubic-bezier(.2,.8,.2,1) forwards, logoFloat 7s ease-in-out infinite 1.4s; }
+    .fade-1 { opacity: 0; transform: translateY(16px); animation: fadeUp .9s cubic-bezier(.2,.8,.2,1) forwards .24s; }
+    .fade-2 { opacity: 0; transform: translateY(16px); animation: fadeUp .9s cubic-bezier(.2,.8,.2,1) forwards .44s; }
+    .fade-3 { opacity: 0; transform: translateY(16px); animation: fadeUp .9s cubic-bezier(.2,.8,.2,1) forwards .64s; }
+    .portrait { animation: portraitFloat 8s ease-in-out infinite; }
 
     @keyframes logoReveal {
-      0% {
-        opacity: 0;
-        transform: translateY(24px) scale(.94);
-        filter: blur(4px) drop-shadow(0 18px 34px rgba(0,0,0,.26));
-      }
-      70% {
-        opacity: 1;
-        transform: translateY(-2px) scale(1.015);
-        filter: blur(0) drop-shadow(0 22px 40px rgba(0,0,0,.30));
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: blur(0) drop-shadow(0 18px 34px rgba(0,0,0,.26));
-      }
+      0% { opacity: 0; transform: translateY(24px) scale(.94); filter: blur(4px) drop-shadow(0 18px 34px rgba(0,0,0,.26)); }
+      70% { opacity: 1; transform: translateY(-2px) scale(1.015); filter: blur(0) drop-shadow(0 22px 42px rgba(0,0,0,.30)); }
+      100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0) drop-shadow(0 18px 34px rgba(0,0,0,.26)); }
     }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    @keyframes logoFloat {
-      0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-7px) scale(1.006); }
-    }
-
-    @keyframes portraitFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0) scale(1); } }
+    @keyframes logoFloat { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-7px) scale(1.006); } }
+    @keyframes portraitFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
     @media (max-width: 767px) {
-      .nav-brand-logo {
-        height: 44px;
-        max-width: 180px;
-      }
-
-      .nav-symbol-logo {
-        height: 46px;
-        width: 46px;
-        max-width: 46px;
-      }
-
-      .hero-brand-logo {
-        width: min(390px, 94vw);
-        max-height: 210px;
-      }
+      .nav-symbol-logo { height: 44px; width: 44px; }
+      .hero-brand-logo { width: min(390px, 94vw); max-height: 210px; }
     }
-
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-        scroll-behavior: auto !important;
-      }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
     }
   </style>
 </head>
@@ -259,83 +111,64 @@
 <body class="font-sans antialiased">
   <div class="grain"></div>
 
-  <!-- Header -->
-  <header id="top" class="fixed top-0 left-0 right-0 z-40 border-b border-white/30 nav-blur">
+  <header id="top" class="fixed left-0 right-0 top-0 z-40 border-b border-white/30 nav-blur">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 lg:px-8">
-      <a href="#top" class="flex items-center" aria-label="FIKRA Conseil accueil">
-        <img src="fikra-symbol.svg" alt="Symbole FIKRA" class="nav-brand-logo nav-symbol-logo" />
+      <a href="#top" aria-label="Accueil FIKRA Conseil" class="flex items-center">
+        <img src="fikra-symbol.svg" alt="Symbole FIKRA" class="nav-symbol-logo" />
       </a>
-
       <nav class="hidden items-center gap-8 text-sm font-semibold text-navy/80 lg:flex">
         <a href="#histoire" class="hover:text-emerald">Histoire</a>
         <a href="#services" class="hover:text-emerald">Services</a>
         <a href="#approche" class="hover:text-emerald">Approche</a>
-        <a href="#projets" class="hover:text-emerald">Projets</a>
+        <a href="#projets" class="hover:text-emerald">Réalisations</a>
         <a href="#contact" class="rounded-full bg-navy px-5 py-2.5 text-white shadow-soft transition hover:bg-emerald">Prendre contact</a>
       </nav>
-
-      <button id="menuBtn" class="lg:hidden rounded-full border border-navy/15 px-4 py-2 text-sm font-bold text-navy">Menu</button>
+      <button id="menuBtn" class="rounded-full border border-navy/15 px-4 py-2 text-sm font-bold text-navy lg:hidden">Menu</button>
     </div>
-
     <div id="mobileMenu" class="mobile-menu border-t border-navy/10 bg-cream lg:hidden">
       <div class="mx-auto grid max-w-7xl gap-1 px-5 py-4 text-sm font-semibold text-navy">
         <a href="#histoire" class="rounded-xl px-3 py-3 hover:bg-white">Histoire</a>
         <a href="#services" class="rounded-xl px-3 py-3 hover:bg-white">Services</a>
         <a href="#approche" class="rounded-xl px-3 py-3 hover:bg-white">Approche</a>
-        <a href="#projets" class="rounded-xl px-3 py-3 hover:bg-white">Projets</a>
+        <a href="#projets" class="rounded-xl px-3 py-3 hover:bg-white">Réalisations</a>
         <a href="#contact" class="rounded-xl bg-navy px-3 py-3 text-white">Prendre contact</a>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- Hero -->
     <section class="relative min-h-screen overflow-hidden bg-navy pt-28 text-white ocean-lines">
       <div class="absolute inset-0 opacity-30">
         <img src="PHOTO ARMEE.jpg" alt="Hazem MZE MOHAMED, fondateur de FIKRA Conseil" class="h-full w-full object-cover object-center mix-blend-luminosity" />
       </div>
-
-      <div class="absolute inset-0 bg-gradient-to-r from-navy via-navy/91 to-navy/48"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-navy via-navy/92 to-navy/48"></div>
       <div class="absolute -bottom-32 -right-28 h-96 w-96 rounded-full bg-emerald/20 blur-3xl"></div>
       <div class="absolute left-10 top-44 h-52 w-52 rounded-full bg-gold/10 blur-3xl"></div>
 
-      <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-5 pb-20 pt-12 lg:grid-cols-[1.05fr_.95fr] lg:px-8 lg:pt-20">
+      <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-5 pb-20 pt-12 lg:grid-cols-[1.08fr_.92fr] lg:px-8 lg:pt-20">
         <div>
-          <div class="hero-copy-anim mb-8 inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.24em] text-gold backdrop-blur">
-            <span class="h-2 w-2 rounded-full bg-gold"></span>
-            Comores · Océan Indien · Afrique
+          <div class="fade-1 mb-8 inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-gold backdrop-blur">
+            <span class="h-2 w-2 rounded-full bg-gold"></span> Moroni · Comores · Océan Indien
           </div>
 
           <div class="hero-brand-wrap mb-8">
             <img src="fikra-logo.svg" alt="FIKRA Conseil — Pensée. Stratégie. Réalisation." class="brand-logo hero-brand-logo" />
           </div>
 
-          <h1 class="hero-title-anim max-w-4xl font-serif text-4xl font-extrabold leading-[1.02] tracking-tight md:text-6xl lg:text-7xl">
-            Le cerveau local des projets qui doivent <span class="text-gradient">aboutir.</span>
+          <h1 class="fade-2 max-w-4xl font-serif text-4xl font-extrabold leading-[1.02] tracking-tight md:text-6xl lg:text-7xl">
+            Le relais stratégique des projets qui doivent <span class="text-gradient">aboutir.</span>
           </h1>
-
-          <p class="hero-copy-anim mt-6 max-w-2xl text-lg leading-8 text-white/78 md:text-xl">
-            FIKRA Conseil structure, représente et accélère les ambitions d’investisseurs, d’institutions et d’entreprises aux Comores — avec la rigueur d’un cabinet international et l’intelligence du terrain.
+          <p class="fade-2 mt-6 max-w-2xl text-lg leading-8 text-white/78 md:text-xl">
+            FIKRA Conseil aide investisseurs, institutions et entreprises à comprendre le terrain comorien, structurer leurs décisions et transformer leurs ambitions en projets exécutables.
           </p>
-
-          <div class="hero-cta-anim mt-9 flex flex-col gap-4 sm:flex-row">
-            <a href="#contact" class="group rounded-full gold-gradient px-7 py-4 text-center text-sm font-extrabold uppercase tracking-[0.16em] text-navy shadow-premium transition hover:scale-[1.02]">Discuter de votre projet</a>
-            <a href="#services" class="rounded-full border border-white/25 px-7 py-4 text-center text-sm font-extrabold uppercase tracking-[0.16em] text-white transition hover:border-gold hover:bg-white/10">Découvrir nos services</a>
+          <div class="fade-3 mt-9 flex flex-col gap-4 sm:flex-row">
+            <a href="#contact" class="rounded-full gold-gradient px-7 py-4 text-center text-sm font-extrabold uppercase tracking-[0.15em] text-navy shadow-premium transition hover:scale-[1.02]">Discuter de votre projet</a>
+            <a href="#services" class="rounded-full border border-white/25 px-7 py-4 text-center text-sm font-extrabold uppercase tracking-[0.15em] text-white transition hover:border-gold hover:bg-white/10">Découvrir les expertises</a>
           </div>
-
           <div class="reveal mt-12 grid max-w-2xl grid-cols-3 gap-3 text-center">
-            <div class="rounded-2xl border border-white/12 bg-white/8 p-4 backdrop-blur">
-              <p class="font-serif text-3xl font-bold text-gold">3</p>
-              <p class="mt-1 text-xs uppercase tracking-widest text-white/65">Pôles d’expertise</p>
-            </div>
-            <div class="rounded-2xl border border-white/12 bg-white/8 p-4 backdrop-blur">
-              <p class="font-serif text-3xl font-bold text-gold">3 sem.</p>
-              <p class="mt-1 text-xs uppercase tracking-widest text-white/65">Vitesse terrain</p>
-            </div>
-            <div class="rounded-2xl border border-white/12 bg-white/8 p-4 backdrop-blur">
-              <p class="font-serif text-3xl font-bold text-gold">360°</p>
-              <p class="mt-1 text-xs uppercase tracking-widest text-white/65">Projet & décision</p>
-            </div>
+            <div class="rounded-2xl border border-white/12 bg-white/8 p-4 backdrop-blur"><p class="font-serif text-3xl font-bold text-gold">3</p><p class="mt-1 text-xs uppercase tracking-widest text-white/65">Pôles</p></div>
+            <div class="rounded-2xl border border-white/12 bg-white/8 p-4 backdrop-blur"><p class="font-serif text-3xl font-bold text-gold">360°</p><p class="mt-1 text-xs uppercase tracking-widest text-white/65">Projet & décision</p></div>
+            <div class="rounded-2xl border border-white/12 bg-white/8 p-4 backdrop-blur"><p class="font-serif text-3xl font-bold text-gold">Local</p><p class="mt-1 text-xs uppercase tracking-widest text-white/65">Présence terrain</p></div>
           </div>
         </div>
 
@@ -343,303 +176,163 @@
           <div class="relative mx-auto max-w-md">
             <div class="absolute -inset-5 rounded-[2rem] border border-gold/30"></div>
             <div class="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-gold/20 blur-2xl"></div>
-            <img src="PHOTO ARMEE.jpg" alt="Portrait du fondateur FIKRA Conseil" class="hero-photo relative aspect-[4/5] w-full rounded-[2rem] object-cover shadow-premium ring-1 ring-white/20" />
+            <img src="PHOTO ARMEE.jpg" alt="Portrait du fondateur FIKRA Conseil" class="portrait relative aspect-[4/5] w-full rounded-[2rem] object-cover shadow-premium ring-1 ring-white/20" />
             <div class="absolute -bottom-7 left-8 right-8 rounded-3xl border border-white/15 bg-white/10 p-5 shadow-premium backdrop-blur-xl">
               <p class="text-sm font-bold uppercase tracking-[0.18em] text-gold">Hazem MZE MOHAMED</p>
-              <p class="mt-2 text-sm leading-6 text-white/82">Fondateur — FIKRA Conseil. Rigueur militaire, formation business européenne, ancrage comorien.</p>
+              <p class="mt-2 text-sm leading-6 text-white/82">Fondateur — rigueur militaire, formation business européenne, ancrage comorien.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Story -->
     <section id="histoire" class="relative overflow-hidden bg-cream py-24 lg:py-32">
       <div class="absolute left-0 top-0 h-full w-1/3 bg-gradient-to-b from-emerald/10 to-transparent"></div>
-
       <div class="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[.9fr_1.1fr] lg:px-8">
         <div class="reveal">
           <div class="sticky top-28">
             <p class="text-sm font-extrabold uppercase tracking-[0.26em] text-emerald">Notre histoire</p>
-            <h2 class="mt-4 font-serif text-4xl font-bold leading-tight text-navy md:text-5xl">Une trajectoire forgée par la discipline, le terrain et l’ambition des Comores.</h2>
+            <h2 class="mt-4 font-serif text-4xl font-bold leading-tight text-navy md:text-5xl">Une trajectoire entre discipline, international et retour au terrain.</h2>
             <div class="mt-8 overflow-hidden rounded-[2rem] bg-navy p-3 shadow-premium">
-              <img src="PHOTO ARMEE.jpg" alt="Parcours militaire et discipline du fondateur" class="aspect-[4/3] w-full rounded-[1.5rem] object-cover" />
+              <img src="PHOTO ARMEE.jpg" alt="Parcours militaire du fondateur" class="aspect-[4/3] w-full rounded-[1.5rem] object-cover" />
             </div>
           </div>
         </div>
-
         <div class="reveal space-y-7 text-lg leading-9 text-ink/82">
-          <p><strong class="text-navy">FIKRA naît d’un constat simple :</strong> les Comores concentrent des opportunités immenses, mais trop de projets échouent entre l’idée, les institutions, les partenaires, le financement et l’exécution.</p>
-          <p>Après un parcours dans les lycées militaires français — Prytanée National de La Flèche et Lycée Militaire d’Autun — Hazem MZE MOHAMED développe une culture de rigueur, de responsabilité et d’exécution. Cette discipline devient la colonne vertébrale de sa manière de penser les affaires.</p>
-          <p>Formé en école de commerce, avec des expériences en France, au Luxembourg, à Dubaï et à l’international, il observe une faille récurrente : les investisseurs disposent souvent du capital, mais pas du bon relais local ; les institutions ont des ambitions, mais pas toujours l’ingénierie pour les transformer en projets livrables.</p>
-          <p>De retour aux Comores, il crée FIKRA Conseil pour devenir ce pont : <strong class="text-emerald">un cabinet capable de comprendre les standards internationaux tout en maîtrisant les réalités concrètes du terrain comorien.</strong></p>
-
+          <p><strong class="text-navy">FIKRA naît d’un vide concret :</strong> entre les ambitions d’investissement et la réalité opérationnelle des Comores, il manque souvent un relais capable de comprendre les standards internationaux et les codes du terrain.</p>
+          <p>Après cinq années dans les lycées militaires français, Hazem MZE MOHAMED se forge une rigueur intellectuelle et opérationnelle. Son parcours business en France, au Luxembourg et à l’international lui donne ensuite une lecture directe des attentes des investisseurs, institutions et dirigeants.</p>
+          <p>De retour à Moroni, il fonde FIKRA Conseil pour apporter ce qui manque le plus aux projets : une pensée structurée, une représentation fiable et une exécution suivie.</p>
           <div class="rounded-[2rem] border border-gold/30 bg-white p-8 shadow-soft">
             <p class="font-serif text-2xl font-bold text-navy">« Les Comores ne sont pas votre risque. L’absence d’un partenaire local compétent l’est. »</p>
-            <p class="mt-4 text-base leading-7 text-ink/70">Notre rôle : penser juste, structurer clairement, représenter fidèlement et exécuter sans dispersion.</p>
+            <p class="mt-4 text-base leading-7 text-ink/70">Notre rôle : réduire l’incertitude, structurer la décision et transformer les échanges en livrables.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Services -->
     <section id="services" class="bg-white py-24 lg:py-32">
       <div class="mx-auto max-w-7xl px-5 lg:px-8">
         <div class="reveal mx-auto max-w-3xl text-center">
-          <p class="text-sm font-extrabold uppercase tracking-[0.26em] text-emerald">Nos services</p>
-          <h2 class="mt-4 font-serif text-4xl font-bold text-navy md:text-6xl">Des offres pensées pour convaincre, connecter et livrer.</h2>
-          <p class="mt-6 text-lg leading-8 text-ink/70">FIKRA intervient là où le projet a besoin d’intelligence stratégique, de crédibilité institutionnelle et de suivi opérationnel.</p>
+          <p class="text-sm font-extrabold uppercase tracking-[0.26em] text-emerald">Nos expertises</p>
+          <h2 class="mt-4 font-serif text-4xl font-bold text-navy md:text-6xl">Des services conçus pour cadrer, convaincre et exécuter.</h2>
+          <p class="mt-6 text-lg leading-8 text-ink/70">Chaque mission est adaptée au contexte, au niveau de maturité du projet et aux interlocuteurs à convaincre. Les modalités sont définies sur devis après diagnostic.</p>
         </div>
-
         <div class="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <article class="reveal card-hover rounded-[2rem] border border-navy/10 bg-cream p-8">
-            <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-navy text-2xl text-gold">◆</div>
-            <h3 class="font-serif text-2xl font-bold text-navy">Conseil stratégique & développement</h3>
-            <p class="mt-4 leading-7 text-ink/70">Études de faisabilité, analyses de marché, stratégie de croissance, projets PPP, diagnostic organisationnel.</p>
-            <p class="mt-6 text-sm font-bold text-emerald">À partir de 3 000 €</p>
-          </article>
-
-          <article class="reveal card-hover rounded-[2rem] border border-navy/10 bg-cream p-8">
-            <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald text-2xl text-white">✦</div>
-            <h3 class="font-serif text-2xl font-bold text-navy">FIKRA Pitch</h3>
-            <p class="mt-4 leading-7 text-ink/70">Ingénierie de dossiers décideurs : transformer une idée en document clair, convaincant et finançable.</p>
-            <p class="mt-6 text-sm font-bold text-emerald">500 € à 4 000 € + success fee</p>
-          </article>
-
-          <article class="reveal card-hover rounded-[2rem] border border-navy/10 bg-cream p-8">
-            <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gold text-2xl text-navy">↗</div>
-            <h3 class="font-serif text-2xl font-bold text-navy">Intermédiation & représentation</h3>
-            <p class="mt-4 leading-7 text-ink/70">Vos yeux, vos oreilles et votre voix aux Comores : partenaires, marchés, institutions, suivi terrain.</p>
-            <p class="mt-6 text-sm font-bold text-emerald">1 500 € à 4 000 € / mois</p>
-          </article>
-
-          <article class="reveal card-hover rounded-[2rem] border border-navy/10 bg-white p-8">
-            <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-navy text-2xl text-gold">☉</div>
-            <h3 class="font-serif text-2xl font-bold text-navy">Études de faisabilité</h3>
-            <p class="mt-4 leading-7 text-ink/70">Analyse marché, risques, réglementaire, partenaires, chiffrage, feuille de route et recommandations exécutives.</p>
-          </article>
-
-          <article class="reveal card-hover rounded-[2rem] border border-navy/10 bg-white p-8">
-            <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald text-2xl text-white">◈</div>
-            <h3 class="font-serif text-2xl font-bold text-navy">Délégation de compétences</h3>
-            <p class="mt-4 leading-7 text-ink/70">Consultants IT, BTP, énergie, finance, audit et staffing événementiel pour institutions et entreprises.</p>
-          </article>
-
-          <article class="reveal card-hover rounded-[2rem] border border-navy/10 bg-white p-8">
-            <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gold text-2xl text-navy">✓</div>
-            <h3 class="font-serif text-2xl font-bold text-navy">Supervision exécutive</h3>
-            <p class="mt-4 leading-7 text-ink/70">Compte-rendu, relances, coordination, due diligence locale et pilotage jusqu’à décision ou livraison.</p>
-          </article>
+          <article class="reveal card-hover rounded-[2rem] border border-navy/10 bg-cream p-8"><div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-navy text-2xl text-gold">◆</div><h3 class="font-serif text-2xl font-bold text-navy">Conseil stratégique</h3><p class="mt-4 leading-7 text-ink/70">Études de faisabilité, analyses de marché, stratégie de développement, cadrage réglementaire et recommandations exécutives.</p><p class="mt-6 text-sm font-bold text-emerald">Mission sur devis</p></article>
+          <article class="reveal card-hover rounded-[2rem] border border-navy/10 bg-cream p-8"><div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald text-2xl text-white">✦</div><h3 class="font-serif text-2xl font-bold text-navy">FIKRA Pitch</h3><p class="mt-4 leading-7 text-ink/70">Dossiers décideurs, notes de cadrage, mémos investisseurs, narratif stratégique, préparation à la présentation.</p><p class="mt-6 text-sm font-bold text-emerald">Format adapté au besoin</p></article>
+          <article class="reveal card-hover rounded-[2rem] border border-navy/10 bg-cream p-8"><div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gold text-2xl text-navy">↗</div><h3 class="font-serif text-2xl font-bold text-navy">Représentation locale</h3><p class="mt-4 leading-7 text-ink/70">Présence terrain, qualification de partenaires, suivi institutionnel, coordination et compte-rendu régulier.</p><p class="mt-6 text-sm font-bold text-emerald">Accompagnement sur mesure</p></article>
+          <article class="reveal card-hover rounded-[2rem] border border-navy/10 bg-white p-8"><div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-navy text-2xl text-gold">☉</div><h3 class="font-serif text-2xl font-bold text-navy">Ingénierie de projets</h3><p class="mt-4 leading-7 text-ink/70">Structuration de projets publics-privés, infrastructure, énergie, logement, événementiel et transformation organisationnelle.</p></article>
+          <article class="reveal card-hover rounded-[2rem] border border-navy/10 bg-white p-8"><div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald text-2xl text-white">◈</div><h3 class="font-serif text-2xl font-bold text-navy">Délégation de compétences</h3><p class="mt-4 leading-7 text-ink/70">Identification d’experts IT, BTP, énergie, finance, audit et staffing spécialisé pour missions temporaires ou projets.</p></article>
+          <article class="reveal card-hover rounded-[2rem] border border-navy/10 bg-white p-8"><div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gold text-2xl text-navy">✓</div><h3 class="font-serif text-2xl font-bold text-navy">Supervision exécutive</h3><p class="mt-4 leading-7 text-ink/70">Relances, réunions, synthèses, due diligence locale, arbitrages et pilotage jusqu’à décision ou livraison.</p></article>
         </div>
       </div>
     </section>
 
-    <!-- Approach -->
     <section id="approche" class="relative overflow-hidden bg-navy py-24 text-white lg:py-32 ocean-lines">
       <div class="absolute -left-28 top-20 h-80 w-80 rounded-full bg-emerald/25 blur-3xl"></div>
       <div class="absolute -right-28 bottom-20 h-80 w-80 rounded-full bg-gold/20 blur-3xl"></div>
-
       <div class="relative mx-auto max-w-7xl px-5 lg:px-8">
         <div class="reveal grid gap-12 lg:grid-cols-[.9fr_1.1fr] lg:items-end">
-          <div>
-            <p class="text-sm font-extrabold uppercase tracking-[0.26em] text-gold">Notre approche</p>
-            <h2 class="mt-4 font-serif text-4xl font-bold md:text-6xl">FIKRA : pensée claire, stratégie utile, réalisation vérifiable.</h2>
-          </div>
-          <p class="text-lg leading-8 text-white/75">Nous ne vendons pas des heures. Nous construisons des décisions. Chaque mission produit des livrables écrits, une trajectoire claire et une responsabilité assumée.</p>
+          <div><p class="text-sm font-extrabold uppercase tracking-[0.26em] text-gold">Notre approche</p><h2 class="mt-4 font-serif text-4xl font-bold md:text-6xl">FIKRA : penser juste, agir utile, livrer clairement.</h2></div>
+          <p class="text-lg leading-8 text-white/75">Nous construisons des décisions documentées. Chaque mission vise un résultat tangible : un dossier, un partenaire, une lecture terrain, un arbitrage ou une feuille de route.</p>
         </div>
-
         <div class="mt-16 grid gap-6 lg:grid-cols-3">
-          <div class="reveal rounded-[2rem] border border-white/12 bg-white/8 p-8 backdrop-blur">
-            <p class="font-serif text-5xl font-bold text-gold">Fikra</p>
-            <h3 class="mt-5 text-xl font-bold">La pensée</h3>
-            <p class="mt-4 leading-7 text-white/70">Avant d’agir, comprendre. Avant de présenter, analyser. Avant de recommander, structurer.</p>
-          </div>
-
-          <div class="reveal rounded-[2rem] border border-white/12 bg-white/8 p-8 backdrop-blur">
-            <p class="font-serif text-5xl font-bold text-gold">Amana</p>
-            <h3 class="mt-5 text-xl font-bold">La confiance</h3>
-            <p class="mt-4 leading-7 text-white/70">Transparence, comptes-rendus, alignement d’intérêts, confidentialité et loyauté dans la représentation.</p>
-          </div>
-
-          <div class="reveal rounded-[2rem] border border-white/12 bg-white/8 p-8 backdrop-blur">
-            <p class="font-serif text-5xl font-bold text-gold">Injaz</p>
-            <h3 class="mt-5 text-xl font-bold">La réalisation</h3>
-            <p class="mt-4 leading-7 text-white/70">Rien n’existe tant que ce n’est pas livré : dossier, rendez-vous, partenaire, décision, exécution.</p>
-          </div>
+          <div class="reveal rounded-[2rem] border border-white/12 bg-white/8 p-8 backdrop-blur"><p class="font-serif text-5xl font-bold text-gold">Fikra</p><h3 class="mt-5 text-xl font-bold">La pensée</h3><p class="mt-4 leading-7 text-white/70">Comprendre avant d’agir, clarifier avant de présenter, structurer avant de recommander.</p></div>
+          <div class="reveal rounded-[2rem] border border-white/12 bg-white/8 p-8 backdrop-blur"><p class="font-serif text-5xl font-bold text-gold">Amana</p><h3 class="mt-5 text-xl font-bold">La confiance</h3><p class="mt-4 leading-7 text-white/70">Confidentialité, transparence, loyauté dans la représentation et suivi écrit des missions.</p></div>
+          <div class="reveal rounded-[2rem] border border-white/12 bg-white/8 p-8 backdrop-blur"><p class="font-serif text-5xl font-bold text-gold">Injaz</p><h3 class="mt-5 text-xl font-bold">La réalisation</h3><p class="mt-4 leading-7 text-white/70">Rien n’existe tant que ce n’est pas livré : document, décision, rendez-vous ou exécution.</p></div>
         </div>
-
         <div class="reveal mt-12 grid gap-5 rounded-[2rem] border border-gold/20 bg-cream p-6 text-navy shadow-premium md:grid-cols-3">
-          <div class="p-4">
-            <p class="text-sm font-extrabold uppercase tracking-[0.22em] text-emerald">Accès institutionnel</p>
-            <p class="mt-3 leading-7 text-ink/75">Partenariat ETSAH Conseil, référencé auprès du Gouvernorat de Ngazidja, accès aux décideurs et compréhension des codes locaux.</p>
-          </div>
-          <div class="p-4">
-            <p class="text-sm font-extrabold uppercase tracking-[0.22em] text-emerald">Double culture</p>
-            <p class="mt-3 leading-7 text-ink/75">Formation européenne en stratégie, expérience internationale et ancrage comorien profond.</p>
-          </div>
-          <div class="p-4">
-            <p class="text-sm font-extrabold uppercase tracking-[0.22em] text-emerald">Vitesse d’exécution</p>
-            <p class="mt-3 leading-7 text-ink/75">Là où un cabinet étranger met trois mois, FIKRA peut livrer une première lecture terrain en trois semaines.</p>
-          </div>
+          <div class="p-4"><p class="text-sm font-extrabold uppercase tracking-[0.22em] text-emerald">Accès institutionnel</p><p class="mt-3 leading-7 text-ink/75">Partenariat ETSAH Conseil, proximité avec les décideurs et compréhension des codes locaux.</p></div>
+          <div class="p-4"><p class="text-sm font-extrabold uppercase tracking-[0.22em] text-emerald">Double culture</p><p class="mt-3 leading-7 text-ink/75">Standards européens d’analyse, expérience internationale et ancrage comorien.</p></div>
+          <div class="p-4"><p class="text-sm font-extrabold uppercase tracking-[0.22em] text-emerald">Exécution écrite</p><p class="mt-3 leading-7 text-ink/75">Notes, comptes-rendus, dossiers, relances et traçabilité : ce qui est stratégique est documenté.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- Projects -->
     <section id="projets" class="bg-cream py-24 lg:py-32">
       <div class="mx-auto max-w-7xl px-5 lg:px-8">
-        <div class="reveal max-w-3xl">
-          <p class="text-sm font-extrabold uppercase tracking-[0.26em] text-emerald">Projets & réalisations</p>
-          <h2 class="mt-4 font-serif text-4xl font-bold text-navy md:text-6xl">Des cas concrets, une logique de holding future.</h2>
-          <p class="mt-6 text-lg leading-8 text-ink/70">FIKRA se construit comme un cabinet de conseil aujourd’hui, avec une vision d’écosystème demain : projets, partenaires, compétences et opportunités structurées.</p>
-        </div>
-
+        <div class="reveal max-w-3xl"><p class="text-sm font-extrabold uppercase tracking-[0.26em] text-emerald">Projets & références</p><h2 class="mt-4 font-serif text-4xl font-bold text-navy md:text-6xl">Une approche terrain appliquée à des cas concrets.</h2><p class="mt-6 text-lg leading-8 text-ink/70">FIKRA intervient sur des sujets où la qualité du cadrage, la compréhension locale et la crédibilité du dossier font la différence.</p></div>
         <div class="mt-16 grid gap-6 lg:grid-cols-2">
-          <article class="reveal card-hover rounded-[2rem] border border-navy/10 bg-white p-8 shadow-soft">
-            <p class="text-sm font-bold uppercase tracking-[0.22em] text-gold">Infrastructure</p>
-            <h3 class="mt-4 font-serif text-3xl font-bold text-navy">Portefeuille ETSAH Conseil</h3>
-            <p class="mt-4 leading-7 text-ink/70">Supervision exécutive et représentation locale sur des projets d’infrastructure, d’énergie et de logement aux Comores avec investisseurs étrangers.</p>
-          </article>
-
-          <article class="reveal card-hover rounded-[2rem] border border-navy/10 bg-white p-8 shadow-soft">
-            <p class="text-sm font-bold uppercase tracking-[0.22em] text-gold">Dossier décideur</p>
-            <h3 class="mt-4 font-serif text-3xl font-bold text-navy">Ô Mpira Stadium × AFG Atlantic Holding Group</h3>
-            <p class="mt-4 leading-7 text-ink/70">Dossier de partenariat stratégique pour un complexe sportif indoor à Moroni, retenu favorablement par l’institution.</p>
-          </article>
-
-          <article class="reveal card-hover rounded-[2rem] border border-navy/10 bg-white p-8 shadow-soft">
-            <p class="text-sm font-bold uppercase tracking-[0.22em] text-gold">Énergie</p>
-            <h3 class="mt-4 font-serif text-3xl font-bold text-navy">Énergie solaire & autonomie locale</h3>
-            <p class="mt-4 leading-7 text-ink/70">Structuration de projets solaires : identification de partenaires, cadrage institutionnel, ingénierie de dossier et lecture des risques terrain.</p>
-          </article>
-
-          <article class="reveal card-hover rounded-[2rem] border border-navy/10 bg-white p-8 shadow-soft">
-            <p class="text-sm font-bold uppercase tracking-[0.22em] text-gold">Événementiel stratégique</p>
-            <h3 class="mt-4 font-serif text-3xl font-bold text-navy">Jeux des Îles & grands événements</h3>
-            <p class="mt-4 leading-7 text-ink/70">Cartographie des besoins, staffing, coordination de compétences et préparation aux appels d’offres institutionnels.</p>
-          </article>
-
-          <article class="reveal card-hover rounded-[2rem] border border-navy/10 bg-white p-8 shadow-soft lg:col-span-2">
-            <p class="text-sm font-bold uppercase tracking-[0.22em] text-gold">Développement business</p>
-            <h3 class="mt-4 font-serif text-3xl font-bold text-navy">PME locales & entreprises en croissance</h3>
-            <p class="mt-4 leading-7 text-ink/70">Accompagnement de PME locales dans leur structuration commerciale, leur positionnement, leurs dossiers décideurs et leur accès à des partenaires plus solides.</p>
-          </article>
+          <article class="reveal card-hover rounded-[2rem] border border-navy/10 bg-white p-8 shadow-soft"><p class="text-sm font-bold uppercase tracking-[0.22em] text-gold">Infrastructure</p><h3 class="mt-4 font-serif text-3xl font-bold text-navy">Portefeuille ETSAH Conseil</h3><p class="mt-4 leading-7 text-ink/70">Représentation locale et suivi exécutif sur des projets d’infrastructure, d’énergie et de logement aux Comores.</p></article>
+          <article class="reveal card-hover rounded-[2rem] border border-navy/10 bg-white p-8 shadow-soft"><p class="text-sm font-bold uppercase tracking-[0.22em] text-gold">Dossier décideur</p><h3 class="mt-4 font-serif text-3xl font-bold text-navy">Ô Mpira Stadium × AFG Atlantic Holding Group</h3><p class="mt-4 leading-7 text-ink/70">Dossier de partenariat stratégique pour un complexe sportif indoor à Moroni, construit pour parler aux décideurs.</p></article>
+          <article class="reveal card-hover rounded-[2rem] border border-navy/10 bg-white p-8 shadow-soft"><p class="text-sm font-bold uppercase tracking-[0.22em] text-gold">Énergie</p><h3 class="mt-4 font-serif text-3xl font-bold text-navy">Énergie solaire & autonomie locale</h3><p class="mt-4 leading-7 text-ink/70">Cadrage de projets solaires : partenaires, institutions, risques terrain et stratégie de présentation.</p></article>
+          <article class="reveal card-hover rounded-[2rem] border border-navy/10 bg-white p-8 shadow-soft"><p class="text-sm font-bold uppercase tracking-[0.22em] text-gold">Événementiel stratégique</p><h3 class="mt-4 font-serif text-3xl font-bold text-navy">Jeux des Îles & grands événements</h3><p class="mt-4 leading-7 text-ink/70">Cartographie des besoins, coordination de compétences et préparation aux opportunités institutionnelles.</p></article>
+          <article class="reveal card-hover rounded-[2rem] border border-navy/10 bg-white p-8 shadow-soft lg:col-span-2"><p class="text-sm font-bold uppercase tracking-[0.22em] text-gold">Développement business</p><h3 class="mt-4 font-serif text-3xl font-bold text-navy">PME locales & entreprises en croissance</h3><p class="mt-4 leading-7 text-ink/70">Structuration commerciale, positionnement, dossiers partenaires et professionnalisation des démarches de croissance.</p></article>
         </div>
       </div>
     </section>
 
-    <!-- Why choose -->
     <section class="bg-white py-24 lg:py-32">
       <div class="mx-auto max-w-7xl px-5 lg:px-8">
         <div class="grid gap-12 lg:grid-cols-[.95fr_1.05fr] lg:items-center">
-          <div class="reveal">
-            <p class="text-sm font-extrabold uppercase tracking-[0.26em] text-emerald">Pourquoi nous choisir</p>
-            <h2 class="mt-4 font-serif text-4xl font-bold text-navy md:text-6xl">Parce que le vrai risque n’est pas le marché. C’est l’angle mort local.</h2>
-            <p class="mt-6 text-lg leading-8 text-ink/70">FIKRA réduit l’incertitude, structure la décision et protège l’exécution.</p>
-
+          <div class="reveal"><p class="text-sm font-extrabold uppercase tracking-[0.26em] text-emerald">Pourquoi FIKRA</p><h2 class="mt-4 font-serif text-4xl font-bold text-navy md:text-6xl">Le bon projet échoue rarement par manque d’ambition. Il échoue par manque de relais.</h2><p class="mt-6 text-lg leading-8 text-ink/70">Nous rendons les projets plus lisibles, plus crédibles et plus exécutables.</p>
             <div class="mt-9 grid gap-4">
-              <div class="flex gap-4 rounded-2xl bg-cream p-5"><span class="font-bold text-emerald">01</span><p><strong>Accès terrain.</strong> Compréhension des réseaux institutionnels, économiques et informels.</p></div>
-              <div class="flex gap-4 rounded-2xl bg-cream p-5"><span class="font-bold text-emerald">02</span><p><strong>Livrables écrits.</strong> Rien ne reste verbal : compte-rendu, note, dossier, plan d’action.</p></div>
-              <div class="flex gap-4 rounded-2xl bg-cream p-5"><span class="font-bold text-emerald">03</span><p><strong>Alignement des intérêts.</strong> Sur l’intermédiation, FIKRA gagne mieux quand le client gagne.</p></div>
+              <div class="flex gap-4 rounded-2xl bg-cream p-5"><span class="font-bold text-emerald">01</span><p><strong>Lecture terrain.</strong> Identifier les vrais interlocuteurs, les contraintes et les circuits de décision.</p></div>
+              <div class="flex gap-4 rounded-2xl bg-cream p-5"><span class="font-bold text-emerald">02</span><p><strong>Clarté écrite.</strong> Transformer les discussions en notes, dossiers, comptes-rendus et feuilles de route.</p></div>
+              <div class="flex gap-4 rounded-2xl bg-cream p-5"><span class="font-bold text-emerald">03</span><p><strong>Alignement.</strong> Construire des relations où le conseil sert un résultat concret, pas une présence décorative.</p></div>
             </div>
           </div>
-
           <div class="reveal space-y-5">
-            <figure class="rounded-[2rem] border border-navy/10 bg-cream p-8 shadow-soft">
-              <blockquote class="font-serif text-2xl font-bold leading-snug text-navy">« FIKRA nous a permis de comprendre rapidement les vrais circuits de décision et d’éviter plusieurs erreurs de cadrage. »</blockquote>
-              <figcaption class="mt-5 text-sm font-bold uppercase tracking-[0.18em] text-emerald">Investisseur diaspora — Placeholder</figcaption>
-            </figure>
-            <figure class="rounded-[2rem] border border-navy/10 bg-navy p-8 text-white shadow-premium">
-              <blockquote class="font-serif text-2xl font-bold leading-snug">« Une approche rare : stratégique sur le fond, concrète sur le terrain. »</blockquote>
-              <figcaption class="mt-5 text-sm font-bold uppercase tracking-[0.18em] text-gold">Partenaire institutionnel — Placeholder</figcaption>
-            </figure>
+            <figure class="rounded-[2rem] border border-navy/10 bg-cream p-8 shadow-soft"><blockquote class="font-serif text-2xl font-bold leading-snug text-navy">« FIKRA intervient là où la plupart des acteurs extérieurs manquent de lecture locale : cadrage, crédibilité et suivi. »</blockquote><figcaption class="mt-5 text-sm font-bold uppercase tracking-[0.18em] text-emerald">Investisseur privé — Diaspora comorienne</figcaption></figure>
+            <figure class="rounded-[2rem] border border-navy/10 bg-navy p-8 text-white shadow-premium"><blockquote class="font-serif text-2xl font-bold leading-snug">« Une approche rare : stratégique dans l’analyse, concrète dans l’exécution, claire dans les livrables. »</blockquote><figcaption class="mt-5 text-sm font-bold uppercase tracking-[0.18em] text-gold">Partenaire institutionnel — Comores</figcaption></figure>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
     <section id="contact" class="relative overflow-hidden bg-navy py-24 text-white lg:py-32 ocean-lines">
       <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent"></div>
-
       <div class="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[.9fr_1.1fr] lg:px-8">
-        <div class="reveal">
-          <p class="text-sm font-extrabold uppercase tracking-[0.26em] text-gold">Contact</p>
-          <h2 class="mt-4 font-serif text-4xl font-bold md:text-6xl">Parlons de ce que vous voulez rendre possible.</h2>
-          <p class="mt-6 text-lg leading-8 text-white/75">Un premier échange de 30 minutes pour comprendre votre contexte, identifier les vrais risques et décider si FIKRA peut créer de la valeur.</p>
-
+        <div class="reveal"><p class="text-sm font-extrabold uppercase tracking-[0.26em] text-gold">Contact</p><h2 class="mt-4 font-serif text-4xl font-bold md:text-6xl">Parlons de votre projet avant qu’il ne perde du temps.</h2><p class="mt-6 text-lg leading-8 text-white/75">Un premier échange pour comprendre le contexte, clarifier le besoin et déterminer le bon format d’accompagnement.</p>
           <div class="mt-9 space-y-4 text-white/82">
-            <p><strong class="text-gold">Email :</strong> <a href="mailto:mzemohamedhazem@gmail.com" class="hover:text-gold">mzemohamedhazem@gmail.com</a></p>
+            <p><strong class="text-gold">Email :</strong> <a href="mailto:contact@fikraconseil.com" class="hover:text-gold">contact@fikraconseil.com</a></p>
             <p><strong class="text-gold">Téléphone :</strong> <a href="tel:+2694577056" class="hover:text-gold">+269 457 70 56</a></p>
             <p><strong class="text-gold">Localisation :</strong> Moroni, Union des Comores</p>
-            <p><strong class="text-gold">LinkedIn :</strong> linkedin.com/in/hazem-mze-mohamed</p>
+            <p><strong class="text-gold">LinkedIn :</strong> <a href="https://www.linkedin.com/in/hazem-mze-mohamed" target="_blank" rel="noopener" class="hover:text-gold">linkedin.com/in/hazem-mze-mohamed</a></p>
           </div>
         </div>
 
-        <form class="reveal rounded-[2rem] border border-white/12 bg-white p-6 text-navy shadow-premium md:p-8" onsubmit="event.preventDefault(); alert('Merci. Votre message est prêt à être envoyé. Branchez ce formulaire à Formspree, Netlify Forms ou votre CRM.');">
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="reveal rounded-[2rem] border border-white/12 bg-white p-6 text-navy shadow-premium md:p-8">
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="hidden"><label>Ne pas remplir : <input name="bot-field" /></label></p>
           <div class="grid gap-5 md:grid-cols-2">
-            <label class="grid gap-2 text-sm font-bold">Nom<input required type="text" class="rounded-2xl border border-navy/15 bg-cream px-4 py-3 outline-none focus:border-emerald" placeholder="Votre nom" /></label>
-            <label class="grid gap-2 text-sm font-bold">Email<input required type="email" class="rounded-2xl border border-navy/15 bg-cream px-4 py-3 outline-none focus:border-emerald" placeholder="vous@exemple.com" /></label>
+            <label class="grid gap-2 text-sm font-bold">Nom<input required name="nom" type="text" class="rounded-2xl border border-navy/15 bg-cream px-4 py-3 outline-none focus:border-emerald" placeholder="Votre nom" /></label>
+            <label class="grid gap-2 text-sm font-bold">Email<input required name="email" type="email" class="rounded-2xl border border-navy/15 bg-cream px-4 py-3 outline-none focus:border-emerald" placeholder="vous@exemple.com" /></label>
           </div>
-
           <label class="mt-5 grid gap-2 text-sm font-bold">Type de besoin
-            <select class="rounded-2xl border border-navy/15 bg-cream px-4 py-3 outline-none focus:border-emerald">
-              <option>Étude de faisabilité</option>
-              <option>Intermédiation & représentation locale</option>
-              <option>FIKRA Pitch — dossier décideur</option>
-              <option>Délégation de compétences</option>
-              <option>Autre projet stratégique</option>
+            <select name="besoin" class="rounded-2xl border border-navy/15 bg-cream px-4 py-3 outline-none focus:border-emerald">
+              <option>Étude de faisabilité</option><option>Intermédiation & représentation locale</option><option>FIKRA Pitch — dossier décideur</option><option>Délégation de compétences</option><option>Autre projet stratégique</option>
             </select>
           </label>
-
-          <label class="mt-5 grid gap-2 text-sm font-bold">Message<textarea required rows="5" class="rounded-2xl border border-navy/15 bg-cream px-4 py-3 outline-none focus:border-emerald" placeholder="Décrivez votre projet, votre échéance et votre besoin principal."></textarea></label>
-
-          <button type="submit" class="mt-6 w-full rounded-full bg-emerald px-7 py-4 text-sm font-extrabold uppercase tracking-[0.16em] text-white transition hover:bg-navy">Prendre contact</button>
+          <label class="mt-5 grid gap-2 text-sm font-bold">Message<textarea required name="message" rows="5" class="rounded-2xl border border-navy/15 bg-cream px-4 py-3 outline-none focus:border-emerald" placeholder="Décrivez votre projet, votre échéance et votre besoin principal."></textarea></label>
+          <button type="submit" class="mt-6 w-full rounded-full bg-emerald px-7 py-4 text-sm font-extrabold uppercase tracking-[0.15em] text-white transition hover:bg-navy">Envoyer la demande</button>
           <p class="mt-4 text-center text-xs leading-6 text-ink/55">Réponse sous 24 à 48h ouvrées. Confidentialité assurée.</p>
         </form>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="bg-[#061A2E] px-5 py-10 text-white lg:px-8">
     <div class="mx-auto flex max-w-7xl flex-col gap-8 border-t border-white/10 pt-8 md:flex-row md:items-center md:justify-between">
-      <div class="flex items-center">
-        <img src="fikra-logo.svg" alt="FIKRA Conseil — Pensée. Stratégie. Réalisation." class="h-24 w-auto max-w-[280px] object-contain opacity-95" />
-      </div>
-
-      <div class="text-sm text-white/55 md:text-right">
-        <p>© 2026 FIKRA Conseil — Tous droits réservés.</p>
-        <p>Mentions légales · Confidentialité · Moroni, Union des Comores</p>
-      </div>
+      <div class="flex items-center"><img src="fikra-logo.svg" alt="FIKRA Conseil — Pensée. Stratégie. Réalisation." class="h-24 w-auto max-w-[280px] object-contain opacity-95" /></div>
+      <div class="text-sm text-white/55 md:text-right"><p>© 2026 FIKRA Conseil — Tous droits réservés.</p><p>Mentions légales · Confidentialité · Moroni, Union des Comores</p></div>
     </div>
   </footer>
 
   <script>
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
-
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-    });
-
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => mobileMenu.classList.remove('open'));
-    });
+    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('is-visible');
-      });
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('is-visible'); });
     }, { threshold: 0.12 });
-
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
     window.addEventListener('scroll', () => {
       const y = window.scrollY;
-      document.querySelectorAll('.hero-photo').forEach(el => {
-        el.style.transform = `translateY(${Math.min(y * 0.025, 12)}px)`;
-      });
+      document.querySelectorAll('.portrait').forEach(el => { el.style.transform = `translateY(${Math.min(y * 0.025, 12)}px)`; });
     }, { passive: true });
   </script>
 </body>
